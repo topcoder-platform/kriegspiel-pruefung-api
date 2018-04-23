@@ -1,0 +1,44 @@
+{
+  "name": "gameon_wrapper",
+  "version": "1.0.0",
+  "description": "Amazon Gameon API Wrapper",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint . --format table",
+    "lint:fix": "eslint . --format table --fix"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.17.2",
+    "co": "^4.6.0",
+    "common-errors": "^1.0.4",
+    "config": "^1.26.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "express-jwt": "^5.3.1",
+    "get-parameter-names": "^0.3.0",
+    "http-status": "^1.0.1",
+    "joi": "^10.6.0",
+    "jsonwebtoken": "^7.4.3",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.7",
+    "node-rsa": "^0.4.2",
+    "superagent": "^3.6.0",
+    "superagent-promise": "^1.1.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.17.3"
+  },
+  "engines": {
+    "node": "8.10.x"
+  }
+}

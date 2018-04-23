@@ -1,0 +1,43 @@
+[
+  {
+    "username": "xudyh",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "user",
+    "advertisingId": "device1"
+  },
+  {
+    "username": "scott_wu",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "user",
+    "advertisingId": "device2"
+  },
+  {
+    "username": "rng_58",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "user",
+    "advertisingId": "device3"
+  },
+  {
+    "username": "bcip",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "user",
+    "advertisingId": "device4"
+  },
+  {
+    "username": "ikatanic",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "user",
+    "advertisingId": "device5"
+  },
+  {
+    "username": "tourist",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "user",
+    "advertisingId": "device6"
+  },
+  {
+    "username": "admin",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "userType": "admin"
+  }
+]

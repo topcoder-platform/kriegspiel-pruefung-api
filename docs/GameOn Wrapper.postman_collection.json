@@ -1,0 +1,410 @@
+{
+	"info": {
+		"name": "GameOn Wrapper",
+		"_postman_id": "8f056791-015e-9ff9-b9a2-5abd2da65877",
+		"description": "Postman Collection for Amazon GameOn Wrapper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin APIs",
+			"description": "",
+			"item": [
+				{
+					"name": "Get prizes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"prizes\": [\n    {\n      \"description\": \"First Prize Gold Medal\",\n      \"imageUrl\": \"https://snag.gy/TF8bOv.jpg\",\n      \"title\": \"First Prize\",\n      \"prizeInfo\": \"FIRST_PRIZE\"\n    },\n    {\n      \"description\": \"Second Prize Silver Medal\",\n      \"imageUrl\": \"https://snag.gy/fMrtBj.jpg\",\n      \"title\": \"Second Prize\",\n      \"prizeInfo\": \"SECOND_PRIZE\"\n    },\n    {\n      \"description\": \"Third Prize Bronze Medal\",\n      \"imageUrl\": \"https://snag.gy/MLpOvx.jpg\",\n      \"title\": \"Third Prize\",\n      \"prizeInfo\": \"THIRD_PRIZE\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/admin/prizes",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"admin",
+								"prizes"
+							]
+						},
+						"description": "Get prizes in Amazon Gameon API\nOnly Admin can use it"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Admin login credentials"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Prizes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"prizes\": [\n    {\n      \"description\": \"First Prize Gold Medal\",\n      \"imageUrl\": \"https://snag.gy/TF8bOv.jpg\",\n      \"title\": \"First Prize\",\n      \"prizeInfo\": \"FIRST_PRIZE\"\n    },\n    {\n      \"description\": \"Second Prize Silver Medal\",\n      \"imageUrl\": \"https://snag.gy/fMrtBj.jpg\",\n      \"title\": \"Second Prize\",\n      \"prizeInfo\": \"SECOND_PRIZE\"\n    },\n    {\n      \"description\": \"Third Prize Bronze Medal\",\n      \"imageUrl\": \"https://snag.gy/MLpOvx.jpg\",\n      \"title\": \"Third Prize\",\n      \"prizeInfo\": \"THIRD_PRIZE\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/admin/prizes",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"admin",
+								"prizes"
+							]
+						},
+						"description": "Create prizes in Game On"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Player APIs",
+			"description": "",
+			"item": [
+				{
+					"name": "Player Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfa40513-3719-4b33-bd17-401a97040fce",
+								"type": "text/javascript",
+								"exec": [
+									"if( responseCode.code === 200) {",
+									"    const response = JSON.parse(responseBody);",
+									"    pm.environment.set(\"sessionId\",response.session.sessionId);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"tourist\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Player login credentials"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Upcoming Tournaments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "{{sessionId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{PLAYER_TOKEN}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{API_URL}}/player/upcoming-tournaments",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"player",
+								"upcoming-tournaments"
+							]
+						},
+						"description": "Get list of Upcoming Tournaments"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Live Tournaments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1cf07e04-6c7b-45ea-b84e-48e5c88ed6af",
+								"type": "text/javascript",
+								"exec": [
+									"if( responseCode.code === 200) {",
+									"    const response = JSON.parse(responseBody);",
+									"    pm.environment.set(\"TOURNAMENT_ID\",response.tournaments[0].tournamentId);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "{{sessionId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{PLAYER_TOKEN}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{API_URL}}/player/tournaments",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"player",
+								"tournaments"
+							]
+						},
+						"description": "Get All tournaments including Current and Upcoming"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tournament by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "{{sessionId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{PLAYER_TOKEN}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{API_URL}}/player/tournaments/{{TOURNAMENT_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"player",
+								"tournaments",
+								"{{TOURNAMENT_ID}}"
+							]
+						},
+						"description": "Get Tournament details by it's ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Enter Tournament",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7149cfd1-5e14-4e69-8337-afc6df44717a",
+								"type": "text/javascript",
+								"exec": [
+									"if( responseCode.code === 200) {",
+									"    const response = JSON.parse(responseBody);",
+									"    pm.environment.set(\"MATCH_ID\",response.matchId);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "{{sessionId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{PLAYER_TOKEN}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{API_URL}}/player/tournaments/{{TOURNAMENT_ID}}/enter",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"player",
+								"tournaments",
+								"{{TOURNAMENT_ID}}",
+								"enter"
+							]
+						},
+						"description": "Used by Player to enter a tournament"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Leaderboard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "{{sessionId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{PLAYER_TOKEN}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{API_URL}}/player/matches/{{MATCH_ID}}/leaderboard",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"player",
+								"matches",
+								"{{MATCH_ID}}",
+								"leaderboard"
+							]
+						},
+						"description": "Get leaderboard for the current match"
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Score",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "{{sessionId}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{PLAYER_TOKEN}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{API_URL}}/player/matches/{{MATCH_ID}}/score",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"player",
+								"matches",
+								"{{MATCH_ID}}",
+								"score"
+							]
+						},
+						"description": "Submit Score for the given match"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c4c95882-dbba-4cd5-8d52-cedc5f98ccec",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3439f1a-4945-4e9b-81d8-507fccd7b758",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ff2437e2-33a8-45da-a452-8417fff27bd6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "01e36376-f2ab-4341-ac84-78fcc390957c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
