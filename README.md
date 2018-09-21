@@ -32,7 +32,13 @@ export GAME_PUBLIC_KEY="<Game Public Key>"
 
 4. Modify the other configuration variables if necessary in `config/default.js`
 
-5. Run the application
+5. Import the dummy users in Database by running the script
+
+```
+node scripts/importData.js
+```
+
+6. Run the application
 
 ```
 npm run start
@@ -78,3 +84,17 @@ Step 4: Submit Score (Player APIs -> Submit SCore)
 
 Step 5: Get Leaderboard (Player APIs -> Get Leaderboard)
 
+## General Notes
+
+1. Backend API is hosted at `https://gameonapi.herokuapp.com/api/v1`
+
+2. Password for all Users in `scripts/data/Users.json` is `123456`
+
+E.g. Username: `xudyh`
+	 Password: 123456
+
+3. **Amazon Game On API is not so User friendly**
+
+- Once a competition is created, there is no way to edit it. Admin need to delete and recreate the competition
+
+- Editing of a competition is not at all supported which will be useful when we need to add prizes, increase the timeline etc.. But now none is supported.

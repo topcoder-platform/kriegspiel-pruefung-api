@@ -1,8 +1,5 @@
 /**
  * Init mongo datasource
- *
- * @author      TSCODER
- * @version     1.0
  */
 
 // The mongoose instance.
