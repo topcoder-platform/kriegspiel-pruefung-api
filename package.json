@@ -19,7 +19,7 @@
     "express": "^4.15.4",
     "express-jwt": "^5.3.1",
     "get-parameter-names": "^0.3.0",
-    "http-status": "^1.0.1",
+    "http-status": "^1.5.0",
     "joi": "^10.6.0",
     "jsonwebtoken": "^7.4.3",
     "lodash": "^4.17.4",
