@@ -22,7 +22,7 @@
     "http-status": "^1.0.1",
     "joi": "^10.6.0",
     "jsonwebtoken": "^7.4.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "mongoose": "^4.11.7",
     "node-rsa": "^0.4.2",
     "superagent": "^3.6.0",
