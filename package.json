@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --format table --fix"
   },
   "dependencies": {
-    "bluebird": "^3.5.1",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.17.2",
     "co": "^4.6.0",
     "common-errors": "^1.0.4",
